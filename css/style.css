@@ -1,0 +1,43 @@
+/*resetting the html*/
+html {
+  margin: 0;
+  font-size: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*centering the body*/
+body {
+  display: flex;
+  flex-direction: column;
+  /*justify-content:start;*/
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+main {
+  text-align: center;
+  align-items: center;
+}
+
+/*styling the container*/
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 180px;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main .container input {
+  width: 150px;
+  height: 50px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
