@@ -23,3 +23,6 @@ const noun2 = [
                 ["dog", "cat", "bird", "fish", "rabbit", "hamster", "turtle", "lizard", "snake", "frog", "toad", "salamander", "iguana", "chameleon", "gecko", "crocodile", "alligator", "dinosaur", "dragon", "unicorn", "pegasus", "phoenix", "mermaid"],
                 ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew", "kiwi", "lemon", "mango", "nectarine", "orange", "pear", "raspberry", "strawberry", "tangerine", "watermelon", "zucchini"]
               ];
+
+//grabbing the button element id
+const button = document.getElementById('');
