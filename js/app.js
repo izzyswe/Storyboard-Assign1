@@ -50,6 +50,7 @@ let outputV = document.getElementById("outputVerb");
 let outputN = document.getElementById("outputNoun");
 let outputA = document.getElementById("outputAdj");
 let outputNTwo = document.getElementById("outputNounTwo");
+let storyOutput = document.getElementById("story");
 
 
 //functions - Why Did I do an Annoymous Function?
@@ -59,48 +60,65 @@ let outputNTwo = document.getElementById("outputNounTwo");
  * UPDATE: I am stupid, on all account anonymous functions are used once, they lack the integrity to be called. i forgot to account for that
  */
 //Verb Anonymous Function
-verbBtn.addEventListener("click", function(){
+//verbBtn.addEventListener("click", function(){
+function verbOnClick(){
   //assign random verb to the verb array where we will randomize the outer array's length 
   // for my initial thought, i thought to coordinate them accordingly to each sub array
   // but if it's gonna be a random anyways, it doesn't have to be realistic right?
   // as long as it follow basic english structure right?
   let randomVerb = verb[Math.floor(Math.random() * verb.length)];
   
-  //after the "final decision" of the random array, whichever sub array it picked
-  //randomize the subarray within the array! (this was stupidly over complicated)
-  let randomVerbIndex = Math.floor(Math.random() * randomVerb.length);
-
-  //output the text using the outputV variable that references the id outputVerb id for the p tag
-  outputV.textContent = randomVerb[randomVerbIndex];
+  //[IN REFERENCE TO DISPLAYX FUNCTION] output the text using the outputV variable that references the id outputVerb id for the p tag
   // console debug to ensure it works
   console.log("test");
-});
+
+  //after the "final decision" of the random array, whichever sub array it picked
+  //randomize the subarray within the array! (this was stupidly over complicated)
+  return randomVerb[Math.floor(Math.random() * randomVerb.length)];
+}
 
 //Noun Anonymous Function
-nounBtn.addEventListener("click", function(){
+//nounBtn.addEventListener("click", function(){
+function nounOnClick(){
   let randomNoun = noun[Math.floor(Math.random() * noun.length)];
-  let randomNounIndex = Math.floor(Math.random() * randomNoun.length);
+  return randomNoun[Math.floor(Math.random() * randomNoun.length)];
+}
 
-  outputN.textContent = randomNoun[randomNounIndex];
-  console.log("test");
-});
-
-adjBtn.addEventListener("click", function(){
+//adjBtn.addEventListener("click", function(){
+function adjectiveOnClick(){
   let randomAdj = adjective[Math.floor(Math.random() * adjective.length)];
-  let randomAdjIndex = Math.floor(Math.random() * randomAdj.length);
-
-  outputA.textContent = randomAdj[randomAdjIndex];
-  console.log("test");
-});
+  return randomAdj[Math.floor(Math.random() * randomAdj.length)];
+}
 
 //Second Noun Anonymous Function
-nounTwoBtn.addEventListener("click", function(){
+//nounTwoBtn.addEventListener("click", function(){
+function nounTwoOnClick(){
   let randomNoun = noun[Math.floor(Math.random() * noun.length)];
-  let randomNounIndex = Math.floor(Math.random() * randomNoun.length);
+  return randomNoun[Math.floor(Math.random() * randomNoun.length)];
+}
 
-  outputNTwo.textContent = randomNoun[randomNounIndex];
-  console.log("test");
-});
+//DISPLAY ALL THE DANG WORDS
+function displayVerb() { outputV.textContent = verbOnClick(); }
+function displayNoun() { outputN.textContent = nounOnClick(); }
+function displayAdjective() { outputA.textContent = adjectiveOnClick(); }
+function displayNounTwo() { outputNTwo.textContent = nounTwoOnClick(); }
+
+function GenerateSentenceBtn(){
+  const verb = verbOnClick();
+  const noun = nounOnClick();
+  const adjective = adjectiveOnClick();
+  const nounTwo = nounTwoOnClick();
+
+  const sentence = `${verb} ${noun} ${adjective} ${nounTwo}.`;
+  storyOutput.textContent = sentence;
+}
+
+//ADDING EVENTlISTENERS
+verbBtn.addEventListener("click", displayVerb);
+nounBtn.addEventListener("click", displayNoun);
+adjBtn.addEventListener("click", displayAdjective);
+nounTwoBtn.addEventListener("click", displayNounTwo);
+generateBtn.addEventListener("click", GenerateSentenceBtn);
 
 // Concept Code
 //  Please ignore the code below. It is a concept code for the lab.
