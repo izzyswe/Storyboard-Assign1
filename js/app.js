@@ -132,7 +132,7 @@ function displayNounTwo() {
 //Generate the sentence Function 
 //[admittedly i used chatgpt to help me figure out why it kept outputting "undefined" in the generated function ]
 function GenerateSentenceBtn() {
-  const sentence = `${selectedAdjective} ${selectedNoun} ${selectedVerb} ${selectedNounTwo}.`;
+  const sentence = `${selectedNoun} ${selectedVerb} ${selectedAdjective} ${selectedNounTwo}.`;
 
   if (selectedAdjective && selectedNoun && selectedVerb && selectedNounTwo) {
     storyOutput.textContent = sentence;
