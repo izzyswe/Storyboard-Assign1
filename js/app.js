@@ -43,7 +43,7 @@ const settingBtn = document.getElementById('SettingBtn');
 const generateBtn = document.getElementById('GenerateBtn');
 
 //grabbing the randomized element id
-const randomized = document.getElementById('randomizedBtn');
+const randomizedBtn = document.getElementById('randomizedBtn');
 
 //Outputs
 let outputV = document.getElementById("outputVerb");
@@ -51,7 +51,18 @@ let outputN = document.getElementById("outputNoun");
 let outputA = document.getElementById("outputAdj");
 let outputNTwo = document.getElementById("outputNounTwo");
 let storyOutput = document.getElementById("story");
+let storyTitle = document.getElementById("storyTitle");
+let storyContainer = document.getElementById("outputContainer");
 
+
+// Global variables to store selected words
+// i indvertedly solved my future problem of building my randomizedbtn while working on my generatebtn
+// i realized that nothing is stored in the data so it will keep outputting random unsaved variables 
+// and make random sentences
+let selectedVerb = "";
+let selectedNoun = "";
+let selectedAdjective = "";
+let selectedNounTwo = "";
 
 //functions - Why Did I do an Annoymous Function?
 /*
@@ -98,12 +109,41 @@ function nounTwoOnClick(){
 }
 
 //DISPLAY ALL THE DANG WORDS
-function displayVerb() { outputV.textContent = verbOnClick(); }
-function displayNoun() { outputN.textContent = nounOnClick(); }
-function displayAdjective() { outputA.textContent = adjectiveOnClick(); }
-function displayNounTwo() { outputNTwo.textContent = nounTwoOnClick(); }
+function displayVerb() {
+  selectedVerb = verbOnClick();
+  outputV.textContent = selectedVerb;
+}
 
-function GenerateSentenceBtn(){
+function displayNoun() {
+  selectedNoun = nounOnClick();
+  outputN.textContent = selectedNoun;
+}
+
+function displayAdjective() {
+  selectedAdjective = adjectiveOnClick();
+  outputA.textContent = selectedAdjective;
+}
+
+function displayNounTwo() {
+  selectedNounTwo = nounTwoOnClick();
+  outputNTwo.textContent = selectedNounTwo;
+}
+
+//Generate the sentence Function 
+//[admittedly i used chatgpt to help me figure out why it kept outputting "undefined" in the generated function ]
+function GenerateSentenceBtn() {
+  const sentence = `${selectedAdjective} ${selectedNoun} ${selectedVerb} ${selectedNounTwo}.`;
+
+  if (selectedAdjective && selectedNoun && selectedVerb && selectedNounTwo) {
+    storyOutput.textContent = sentence;
+    storyTitle.textContent = "Generated Story:";
+  } else {
+    storyOutput.textContent = "Please select all words before generating the sentence.";
+    storyTitle.textContent = "Generated Story [ERROR]:";
+  }
+}
+
+function RandomizeSentenceBtn(){
   const verb = verbOnClick();
   const noun = nounOnClick();
   const adjective = adjectiveOnClick();
@@ -111,7 +151,21 @@ function GenerateSentenceBtn(){
 
   const sentence = `${verb} ${noun} ${adjective} ${nounTwo}.`;
   storyOutput.textContent = sentence;
+  storyTitle.textContent = "Randomized Story:"
 }
+
+// Show the div when Generate button is clicked
+storyContainer.style.display = "none";  // Hide initially
+generateBtn.addEventListener("click", () => {
+  storyContainer.style.display = "flex";  // Make the div visible
+  GenerateSentenceBtn();
+});
+
+randomizedBtn.addEventListener("click", () => {
+  storyContainer.style.display = "flex";  // Make the div visible
+  randomizedBtn();
+});
+
 
 //ADDING EVENTlISTENERS
 verbBtn.addEventListener("click", displayVerb);
@@ -119,6 +173,7 @@ nounBtn.addEventListener("click", displayNoun);
 adjBtn.addEventListener("click", displayAdjective);
 nounTwoBtn.addEventListener("click", displayNounTwo);
 generateBtn.addEventListener("click", GenerateSentenceBtn);
+randomizedBtn.addEventListener("click", RandomizeSentenceBtn);
 
 // Concept Code
 //  Please ignore the code below. It is a concept code for the lab.
