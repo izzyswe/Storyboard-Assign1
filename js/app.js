@@ -149,7 +149,7 @@ function RandomizeSentenceBtn(){
   const adjective = adjectiveOnClick();
   const nounTwo = nounTwoOnClick();
 
-  const sentence = `${verb} ${noun} ${adjective} ${nounTwo}.`;
+  const sentence = `${noun} ${verb} ${adjective} ${nounTwo}.`;
   storyOutput.textContent = sentence;
   storyTitle.textContent = "Randomized Story:"
 }
