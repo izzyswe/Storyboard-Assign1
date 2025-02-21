@@ -26,8 +26,8 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 180px;
-  width: 100%;
+  gap: 18px;
+  width: auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 5px;
