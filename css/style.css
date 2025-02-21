@@ -1,7 +1,7 @@
 /*resetting the html*/
 html {
   margin: 0;
-  font-size: 10px;
+  font-size: 20px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -39,6 +39,33 @@ main .container input {
   height: 50px;
   border: 2px solid #ccc;
   border-radius: 5px;
+  font-size: 18px;
+}
+
+main div:nth-of-type(2) p .label{
+  font-weight: 1000;
+  font-size: 25px;
+}
+
+.outputrgbtn{
+  display: flex !important;       /* Ensure flex is applied */
+  flex-direction: column !important; /* Stack buttons vertically */
+  gap: 10px;                      /* Space between buttons */
+  width: max-content;             /* Keeps buttons compact */
+  align-items: center;
+}
+
+.containerOutput{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 
