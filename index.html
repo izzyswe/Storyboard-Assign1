@@ -17,20 +17,22 @@
         <input type="button", value="Nouns", id="NounBtn">
         <input type="button", value="Verbs", id="VerbsBtn">
         <input type="button", value="Adjective", id="AdjBtn">
-        <input type="button", value="Setting", id="SettingBtn">
-        <div>
+        <input type="button", value="Nouns 2", id="NounTwoBtn">
+        <div class="outputrgbtn">
           <input type="button", value="Generate", id="GenerateBtn">
           <input type="button" value="Randomize Story" id="randomizedBtn">
         </div>
       </div>
       <br>
+      <h3>Generate Story</h3>
       <div class="container">
         <!--output the randomized word-->
-        <h3 id="outputTitle"></h3>
-        <p>Noun: <p id="outputNoun"></p></p>
-        <p>Verb: <p id="outputVerb"></p></p>
-        <p>Noun: <p id="outputAdj"></p></p>
-
+        <p><span class="label">Noun:</span> <span id="outputNoun"></span></p>
+        <p><span class="label">Verb: </span><span id="outputVerb"></spam></p>
+        <p><span class="label">Adjective:</span> <spam id="outputAdj"></spam></p>
+        <p><span class="label">Noun 2:</span> <spam id="outputNounTwo"></spam></p>
+      </div>
+      <div class="containerOutput" id="outputContainer">
         <!--output the story-->
         <h3 id="storyTitle"></h3>
         <p id="story"></p>
